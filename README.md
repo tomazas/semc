@@ -1,4 +1,3 @@
-Garso metodų kokybės analizė
-====
-P170M104 Skaitmeninis vaizdo ir garso apdorojimas
-modulio darbas
+#### Quality analysis of sound encoding methods
+
+TBD when more appropriate results come up.
