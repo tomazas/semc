@@ -9,7 +9,9 @@ classdef AudioFile
     
     methods
         function AF = AudioFile(filePath)
-            [AF.data, AF.samplingFrequancy] = audioread(filePath);
+            if nargin > 0
+                [AF.data, AF.samplingFrequancy] = audioread(filePath);
+            end
         end % AudioFile
         
         function play(AF)
@@ -18,4 +20,3 @@ classdef AudioFile
         
     end % methods
 end % classdef
-
