@@ -5,12 +5,14 @@ classdef AudioFile
     properties (SetAccess = public)
         data
         samplingFrequancy
+        info
     end
     
     methods
         function AF = AudioFile(filePath)
             if nargin > 0
                 [AF.data, AF.samplingFrequancy] = audioread(filePath);
+                AF.info = audioinfo(filePath);
             end
         end % AudioFile
         
