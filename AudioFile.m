@@ -3,17 +3,17 @@ classdef AudioFile
     %   Detailed explanation goes here
     
     properties (SetAccess = public)
-        file
+        data
         samplingFrequancy
     end
     
     methods
         function AF = AudioFile(filePath)
-            [AF.file, AF.samplingFrequancy] = audioread(filePath);
+            [AF.data, AF.samplingFrequancy] = audioread(filePath);
         end % AudioFile
         
         function play(AF)
-            sound(AF.file, AF.samplingFrequancy);
+            sound(AF.data, AF.samplingFrequancy);
         end % play
         
     end % methods
