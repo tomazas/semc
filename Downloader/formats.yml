@@ -1,0 +1,41 @@
+# sample input file
+input:
+#  - name: AudioSample1
+#    start: 25s
+#    len: 30s
+#    youtube: https://www.youtube.com/watch?v=M9BNoNFKCBI
+
+  - name: bonus
+    file: ../Audio/bonus.wav
+
+  - name: cafe
+    file: ../Audio/cafe.wav
+
+  - name: simphony
+    file: ../Audio/simphony.wav
+
+  - name: texas_music
+    file: ../Audio/texas_music.wav
+
+
+  - name: turk_tavern
+    file: ../Audio/turk_tavern.wav
+
+
+
+output:
+
+  - name: aac
+    bitrates: [64,72,80,88,96,104,112,120,128,192,256,320]
+    ext: aac
+#    ffmpeg_params       : []
+#    ffmpeg_config_names : []
+    channels : 2
+    acodec: aac
+
+  - name: vorbis
+    bitrates: [64,72,80,88,96,104,112,120,128,192,256,320]
+    ext: ogg
+    acodec: libvorbis
+    channels : 2
+
