@@ -10,7 +10,7 @@ function main
     % uncomment to list HDF5 file contents
     % for i=1:length(raw.Path)
     %     fprintf('raw stream - path: %s, samplename: %s, bitrate: %d\n', ... 
-    %         raw.Path{i}, raw.samplename{i}, raw.samplerate(i));
+    %         raw.Path{i}, raw.SampleName{i}, raw.SampleRate(i));
     % end
 
     enc = h5read(fp, '/info/encoded_samples');
@@ -26,7 +26,7 @@ function main
     % runs test through all PCM samples, all codecs & all bitrates
     % generates a plot for every sample file
     for z=1:length(raw.Path)
-        samplename = raw.samplename{z};
+        samplename = raw.SampleName{z};
         quality_diff = zeros(length(codecs), length(bitrates));
         quality_amp = zeros(length(codecs), length(bitrates));
 

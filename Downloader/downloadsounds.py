@@ -92,7 +92,11 @@ def write_proceesed_data(prdata,grp):
 
   str_type = h5py.new_vlen(str);
   #(hdf_path,samplerate,samplename,objref)
-  meta_info = numpy.dtype([ ('Path',str_type),('samplerate',numpy.int),('samplename',str_type),('objref',h5py.h5t.special_dtype(ref=h5py.Reference))]);
+  meta_info = numpy.dtype([ 
+	('Path',str_type),
+	('SampleRate',numpy.int),
+	('SampleName',str_type),
+	('objref',h5py.h5t.special_dtype(ref=h5py.Reference))]);
 
   if not 'raw_sample_info' in grp: # simple case
     grp.create_dataset("raw_sample_info",(len(prdata),),meta_info,numpy.array(prdata,dtype=meta_info),chunks = True,maxshape=None);
@@ -150,7 +154,12 @@ def write_fobj(fid, rate, data):
     import sys
     if data.dtype.byteorder == '>' or (data.dtype.byteorder == '=' and sys.byteorder == 'big'):
         data = data.byteswap()
-    data.tofile(fid)
+    try:
+      data.tofile(fid)
+    except Exception as err:
+      # Python ver <3.0 specific error here
+      logging.error('Are you sure you`re using Python 3? Error occured.')
+      raise err
     # Determine file size and place it in correct
     #  position at start of the file.
     size = fid.tell()
@@ -233,6 +242,7 @@ def main():
     parser.add_argument("-o","--output",help="output file, default samples.hdf5",default="samples.hdf5")
     args = parser.parse_args();
 
+    logging.basicConfig(filename='debug.log', format='%(asctime)-15s %(message)s')
     logging.getLogger().setLevel(logging.DEBUG)
     data = yaml.load(open(args.input));
     pprint.pprint(data);

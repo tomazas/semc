@@ -17,11 +17,8 @@ input:
   - name: texas_music
     file: ../Audio/texas_music.wav
 
-
   - name: turk_tavern
     file: ../Audio/turk_tavern.wav
-
-
 
 output:
 
@@ -38,4 +35,42 @@ output:
     ext: ogg
     acodec: libvorbis
     channels : 2
+
+  # mp3 requires to have libmp3lame & recompiled ffmpeg version that supports --enable-libmp3lame flag
+  - name: mp3
+    bitrates: [64,72,80,88,96,104,112,120,128,192,256,320]
+    ext: mp3
+    acodec: libmp3lame
+    channels : 2
+
+  - name: flac
+    bitrates: [64,72,80,88,96,104,112,120,128,192,256,320]
+    ext: flac
+    acodec: flac
+    channels : 2
+
+  - name: wma
+    bitrates: [64,72,80,88,96,104,112,120,128,192,256,320]
+    ext: wma
+    acodec: wmav2
+    channels : 2
+
+# bitrate problems - unsupported bitrates
+#  - name: mp2
+#    bitrates: [64,72,80,88,96,104,112,120,128,192,256,320]
+#    ext: mp2
+#    acodec: mp2
+#    channels : 2
+
+# unsupported all format/bitrates
+#  - name: alac
+#    bitrates: [256,320]
+#    ext: alac
+#    acodec: alac
+#    channels : 2
+
+
+
+
+
 
