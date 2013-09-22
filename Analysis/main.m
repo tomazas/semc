@@ -86,5 +86,10 @@ function main
         close(h);
     end
 
+    % ability to test/verify data
+    function playSound(pcm_data)
+        sound((double(pcm_data)./16384.0), 44100);
+    end
+
     disp('Complete.');
 end
