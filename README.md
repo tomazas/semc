@@ -1,3 +1,7 @@
 #### Quality analysis of sound encoding methods
 
-TBD when more appropriate results come up.
+Latest sample HDF file:
+
+samples.hdf5 (2.24 GB)
+https://mega.co.nz/#!vhgQgBQa!DxZMs3VqD7vTXhgrh20CBHxmI6A2OXSfwXD9Ga8n5U4
+
