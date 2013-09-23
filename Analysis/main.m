@@ -72,7 +72,7 @@ function main
                     enc_signal = enc_pcm(offset:(offset+range-1));
 
 
-                    eval(sprintf('[ codec_data(i,j)  desc]= %s(raw_signal,enc_signal);',analyse_modules{analise_module}));
+                    eval(sprintf('[ codec_data(i,j)  desc]= %s(raw_signal,enc_signal,bitrate);',analyse_modules{analise_module}));
                     
                     % runs a analysis tests for the PCM data
 

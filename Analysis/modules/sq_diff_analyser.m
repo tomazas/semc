@@ -1,11 +1,11 @@
 % compares PCM streams dirrectly by calculating Mean Square Error of two
 % signals 
-function [mse desc] = sq_diff_analyser(raw_pcm, enc_pcm)
+function [mse desc] = sq_diff_analyser(raw_pcm, enc_pcm, bitrate)
 
     desc = {};
 
     desc.FILE_PATTERN    =  'diff-%s.png';
-    desc.Y_TITLE         =  'Score (lower is better)';
+    desc.Y_TITLE         =  'Error (lower is better)';
     desc.X_TITLE_PATTERN =  'Mean Square Error analysis - %s';
     
     % difference

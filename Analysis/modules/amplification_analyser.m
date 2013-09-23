@@ -2,7 +2,7 @@
 % Amplification of k = 1 - means that the compared signal levels have not
 % changed, k < 1 - signal aplitude is 1/k times lower(muted), 
 % k > 1 - amplitude is k times greater(boosted).
-function [k desc] = amplification_analyser(raw_pcm, enc_pcm)
+function [k desc] = amplification_analyser(raw_pcm, enc_pcm, bitrate)
 
     desc = {};
     
