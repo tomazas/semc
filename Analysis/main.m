@@ -41,15 +41,23 @@ function main
         
         for module = 1:len_analyse_modules
             codec_data = zeros(length(codecs), length(bitrates));
+            mod = analyse_modules{module};
             desc ={};
+            
+            if (isempty(SEMC.RESTRICT) == 0)
+                if (strcmp(SEMC.RESTRICT, mod) ~= 1)
+                    fprintf('Module %s skipped\n', mod);
+                    continue; % skip all other tests except restricted 
+                end
+            end
             
             for i=1:length(codecs)
                 codec = codecs{i};
                 for j=1:length(bitrates)
                     bitrate = bitrates(j);
 
-                    fprintf('Analyzing PCM file: %s, codec: %s, bitrate: %d, samplename: %s\n', ...
-                        raw.Path{z}, codec, bitrate, samplename);
+                    fprintf('Analyzing PCM file: %s, codec: %s, bitrate: %d, samplename: %s, module: %s\n', ...
+                        raw.Path{z}, codec, bitrate, samplename, mod);
 
                     k = findSample(enc, samplename, codec, bitrate); % ensure we find the required one
                     if (k == -1) 
@@ -70,7 +78,7 @@ function main
                     enc_signal = enc_pcm(offset:(offset+range-1));
 
                     fmt = '[ codec_data(i,j)  desc]= %s(raw_signal,enc_signal,bitrate);';
-                    cmd = sprintf(fmt, analyse_modules{module});
+                    cmd = sprintf(fmt, mod);
                     
                     eval(cmd);
                 end
