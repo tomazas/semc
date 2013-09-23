@@ -2,6 +2,8 @@ function main
     clc;
     format compact;
     clear all; close all;
+    
+    tic;
 
     config; % load configuration
     global SEMC;
@@ -37,11 +39,7 @@ function main
     for z=1:length(raw.Path)
         samplename = raw.SampleName{z};
         
-        %quality_diff = zeros(length(codecs), length(bitrates));
-        %quality_amp = zeros(length(codecs), length(bitrates));
-        
-        for analise_module = 1:len_analyse_modules
-       
+        for module = 1:len_analyse_modules
             codec_data = zeros(length(codecs), length(bitrates));
             desc ={};
             
@@ -71,30 +69,18 @@ function main
                     raw_signal = raw_pcm(1:range);
                     enc_signal = enc_pcm(offset:(offset+range-1));
 
-
-                    eval(sprintf('[ codec_data(i,j)  desc]= %s(raw_signal,enc_signal);',analyse_modules{analise_module}));
+                    fmt = '[ codec_data(i,j)  desc]= %s(raw_signal,enc_signal);';
+                    cmd = sprintf(fmt, analyse_modules{module});
                     
-                    % runs a analysis tests for the PCM data
-
-                    %quality_diff(i, j) = sq_diff_analyser(raw_signal, enc_signal);
-                    %quality_amp(i, j) = amplification_analyser(raw_signal, enc_signal);
-
-                    % TODO: add tests here
+                    eval(cmd);
                 end
                 
             end
             
-            graph(codec_data,strcat(SEMC.RESULTS_DIR,'/',desc.FILE_PATTERN),desc.Y_TITLE,sprintf(desc.X_TITLE_PATTERN,samplename));
+            graph(codec_data,[SEMC.RESULTS_DIR,'/',desc.FILE_PATTERN], ...
+                desc.Y_TITLE,sprintf(desc.X_TITLE_PATTERN,samplename));
             
         end
-        % does some form of result plotting
-        
-        %graph(quality_diff, 'results/diff-%s.png', 'Score (lower is better)', ...
-        %    sprintf('Difference analysis - %s', samplename));
-        %graph(quality_amp, 'results/amp-%s.png', 'Amplification', ....
-        %    sprintf('Amplification analysis - %s', samplename));
-        
-        % TODO: add more plotting of data here
     end
     
     function h = graph(data, pattern, y_title, plot_title)
@@ -115,5 +101,6 @@ function main
         sound((double(pcm_data)./16384.0), 44100);
     end
 
+    toc;
     disp('Complete.');
 end
