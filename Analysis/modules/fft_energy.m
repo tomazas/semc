@@ -1,6 +1,6 @@
 % Compares FFT energy differences encoded with orginal sample
 % http://www.mathworks.se/products/matlab/examples.html?file=/products/demos/shipping/matlab/fftdemo.html
-function [e desc] = fft_energy(raw_pcm, enc_pcm)
+function [e desc] = fft_energy(raw_pcm, enc_pcm,bitrate)
 
     raw_pcm = double(raw_pcm) / 32676.0;
     enc_pcm = double(enc_pcm) / 32676.0;
