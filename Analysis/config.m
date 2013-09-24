@@ -12,4 +12,4 @@ SEMC.RESULTS_DIR  ='results';
 % fft_energy, 
 % peak_siganl_to_noise_ratio, 
 % sq_diff_analyser
-SEMC.RESTRICT = ''; % leave empty to run all
+SEMC.RESTRICT = 'perceptual_evaluation_of_audio_quality'; % leave empty to run all
