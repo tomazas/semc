@@ -3,17 +3,17 @@ input:
   - name: bonus
     file: ../Audio/bonus.wav
 
-  - name: cafe
-    file: ../Audio/cafe.wav
+  #- name: cafe
+  #  file: ../Audio/cafe.wav
 
   - name: simphony
     file: ../Audio/simphony.wav
 
-  - name: texas_music
-    file: ../Audio/texas_music.wav
+  #- name: texas_music
+  #  file: ../Audio/texas_music.wav
 
-  - name: turk_tavern
-    file: ../Audio/turk_tavern.wav
+  #- name: turk_tavern
+  #  file: ../Audio/turk_tavern.wav
 
 output:
   - name: aac
