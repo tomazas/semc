@@ -1,8 +1,11 @@
 #### Quality analysis of sound encoding methods (semc)
 
-Latest sample HDF file:
+Presentation slides: http://goo.gl/PfDX84
 
-samples.hdf5 (2.24 GB)
+
+Latest sound sample HDF file (samples.hdf5 - 2.24 GB):
+
+
 
 ***Usage:***
 
