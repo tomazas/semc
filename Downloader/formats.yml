@@ -1,10 +1,5 @@
 # sample input file
 input:
-#  - name: AudioSample1
-#    start: 25s
-#    len: 30s
-#    youtube: https://www.youtube.com/watch?v=M9BNoNFKCBI
-
   - name: bonus
     file: ../Audio/bonus.wav
 
@@ -21,54 +16,37 @@ input:
     file: ../Audio/turk_tavern.wav
 
 output:
-
   - name: aac
-    bitrates: [64,72,80,88,96,104,112,120,128,192,256,320]
+    bitrates: [64,96]
     ext: aac
-#    ffmpeg_params       : []
-#    ffmpeg_config_names : []
     channels : 2
     acodec: aac
 
   - name: vorbis
-    bitrates: [64,72,80,88,96,104,112,120,128,192,256,320]
+    bitrates: [64,96]
     ext: ogg
     acodec: libvorbis
     channels : 2
 
-  # mp3 requires to have libmp3lame & recompiled ffmpeg version that supports --enable-libmp3lame flag
+  # mp3 requires to have libmp3lame & recompiled
+  # ffmpeg version that supports --enable-libmp3lame flag
   - name: mp3
-    bitrates: [64,72,80,88,96,104,112,120,128,192,256,320]
+    bitrates: [64,96]
     ext: mp3
     acodec: libmp3lame
     channels : 2
 
   - name: flac
-    bitrates: [64,72,80,88,96,104,112,120,128,192,256,320]
+    bitrates: [64,96]
     ext: flac
     acodec: flac
     channels : 2
 
   - name: wma
-    bitrates: [64,72,80,88,96,104,112,120,128,192,256,320]
+    bitrates: [64,96]
     ext: wma
     acodec: wmav2
     channels : 2
-
-# bitrate problems - unsupported bitrates
-#  - name: mp2
-#    bitrates: [64,72,80,88,96,104,112,120,128,192,256,320]
-#    ext: mp2
-#    acodec: mp2
-#    channels : 2
-
-# unsupported all format/bitrates
-#  - name: alac
-#    bitrates: [256,320]
-#    ext: alac
-#    acodec: alac
-#    channels : 2
-
 
 
 
