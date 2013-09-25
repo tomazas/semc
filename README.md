@@ -1,15 +1,24 @@
 #### Quality analysis of sound encoding methods (semc)
 
-Latest sample HDF file:
+Presentation slides: http://goo.gl/PfDX84
 
-samples.hdf5 (2.24 GB)
-https://mega.co.nz/#!vhgQgBQa!DxZMs3VqD7vTXhgrh20CBHxmI6A2OXSfwXD9Ga8n5U4
+
+Latest sound sample HDF file (samples.hdf5 - 2.24 GB):
+
+
 
 ***Usage:***
 
 1. Clone repository to local hard drive:
-```git clone https://github.com/Jamagas/semc/ semc```
-or download a ZIP version of the source from: https://github.com/Jamagas/semc/archive/master.zip
+```git clone https://github.com/tomazas/semc semc```
+or download a ZIP version of the source from: https://github.com/tomazas/semc/archive/master.zip
 
-2. Download the ***samples.hdf5*** file & put it in source ***Analysis*** folder
+2. Download the ***samples.hdf5*** file from link above & put it in source ***Analysis*** folder
 3. Open in MATLAB and run ***Analysis/main.m***
+
+
+***
+
+##### How-to generate sample data (optional):
+
+https://github.com/tomazas/semc/wiki/Data-generation-(Linux)
